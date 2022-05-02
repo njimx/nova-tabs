@@ -1,26 +1,35 @@
 {
-    "name": "dkulyk/nova-tabs",
-    "description": "Another Laravel Nova Tabs Package",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Dmytro Kulyk",
-            "email": "lnkvisitor.ts@gmail.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "DKulyk\\Nova\\": "src"
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0-dev"
-        },
-        "laravel": {
-            "providers": [
-                "DKulyk\\Nova\\TabsServiceProvider"
-            ]
-        }
+  "name": "njimx/nova-tabs",
+  "description": "Another Laravel Nova Tabs Package",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Dmytro Kulyk",
+      "email": "lnkvisitor.ts@gmail.com"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "DKulyk\\Nova\\": "src"
+    }
+  },
+  "require-dev": {
+    "laravel/nova": "^4.0"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://nova.laravel.com"
+    }
+  ],
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    },
+    "laravel": {
+      "providers": [
+        "DKulyk\\Nova\\TabsServiceProvider"
+      ]
+    }
+  }
 }

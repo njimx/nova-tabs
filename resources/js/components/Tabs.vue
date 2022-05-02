@@ -15,26 +15,27 @@
                 </button>
                 <div class="flex-1 border-b-2 border-40"></div>
             </div>
-            <div
-                    :class="[(panel && panel.defaultSearch) ? 'default-search': 'tab-content']"
-                    v-for="(tab, index) in tabs"
-                    v-if="tab.init"
-                    v-show="tab.name == activeTab"
-                    :label="tab.name"
-                    :key="'related-tabs-fields' + index"
-            >
-                <div :class="{'px-6 py-3':!tab.listable}">
-                    <component
-                            v-for="(field, index) in tab.fields"
-                            :class="{'remove-bottom-border': index == tab.fields.length - 1}"
-                            :key="'tab-' + index"
-                            :is="componentName(field)"
-                            :resource-name="resourceName"
-                            :resource-id="resourceId"
-                            :resource="resource"
-                            :field="field"
-                            @actionExecuted="actionExecuted"
-                    />
+            <div v-if="tab.init">
+                <div
+                        :class="[(panel && panel.defaultSearch) ? 'default-search': 'tab-content']"
+                        v-for="(tab, index) in tabs"
+                        v-show="tab.name == activeTab"
+                        :label="tab.name"
+                        :key="'related-tabs-fields' + index"
+                >
+                    <div :class="{'px-6 py-3':!tab.listable}">
+                        <component
+                                v-for="(field, index) in tab.fields"
+                                :class="{'remove-bottom-border': index == tab.fields.length - 1}"
+                                :key="'tab-' + index"
+                                :is="componentName(field)"
+                                :resource-name="resourceName"
+                                :resource-id="resourceId"
+                                :resource="resource"
+                                :field="field"
+                                @actionExecuted="actionExecuted"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
@@ -42,10 +43,7 @@
 </template>
 
 <script>
-    import BehavesAsPanel from 'laravel-nova/src/mixins/BehavesAsPanel'
-
     export default {
-        mixins: [BehavesAsPanel],
         data() {
             return {
                 tabs: null,
