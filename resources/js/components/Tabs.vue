@@ -43,7 +43,9 @@
 </template>
 
 <script>
+    import {default as BehavesAsPanel} from 'laravel-nova/BehavesAsPanel'
     export default {
+        mixins: [BehavesAsPanel],
         data() {
             return {
                 tabs: null,
